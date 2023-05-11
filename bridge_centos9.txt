@@ -1,0 +1,43 @@
+[root@Hyper-Iris220 system-connections]# cat br0.nmconnection
+[connection]
+id=br0
+uuid=d4290773-403b-477c-b703-355852c2c2bc
+type=bridge
+autoconnect-slaves=1
+interface-name=br0
+timestamp=1683780226
+
+[ethernet]
+
+[bridge]
+ageing-time=0
+stp=false
+
+[ipv4]
+address1=10.10.10.10/24
+method=manual
+
+[ipv6]
+addr-gen-mode=default
+method=auto
+
+[proxy]
+[root@Hyper-Iris220 system-connections]# cat eno2.nmconnection
+[connection]
+id=eno2
+uuid=66e9f477-20ef-4604-888b-988dde7bba64
+type=ethernet
+interface-name=eno2
+master=br0
+slave-type=bridge
+autoconnect-priority=-998
+[ethernet]
+
+[bridge-port]
+[root@Hyper-Iris220 system-connections]#
+
+
+===========================================================================
+
+nmcli connection modify br0 bridge.ageing-time 0
+
