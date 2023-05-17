@@ -38,6 +38,9 @@ autoconnect-priority=-998
 
 
 ===========================================================================
-
+nmcli con add type bridge ifname br0
+nmcli con modify bridge-br0 bridge.stp no
 nmcli connection modify br0 bridge.ageing-time 0
+
+nmcli con add type ethernet ifname enp1s0 master bridge-br0
 
